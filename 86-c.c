@@ -9,12 +9,8 @@ int main(){
     scanf("%d %d %d",&t[i], &x[i],&y[i]);
   }
   int j,k;
-  for(k=0;k<n;k++){
-    for(i=0;i<t[k];i++){
-      for(j=0;j<t[k];j++){
-        
-      }
-    }
+	for(i=0;i<n;i++){
+    printf("%d %d %d", t[i], x[i], y[i]);
   }
 
   return 0;
