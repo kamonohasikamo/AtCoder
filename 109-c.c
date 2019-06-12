@@ -35,24 +35,36 @@ int min(int a, int b) {
 	return a < b ? a : b;
 }
 
+int gdc(int a, int b) {
+	if (a == 0 || b == 0) {
+		return a + b;
+	}
+	if (a > b) {
+		return gdc(a%b, b);
+	} else {
+		return gdc(a, b%a);
+	}
+}
+
 int main(void) {
-	int n, k, i, j;
+	int n, i, j;
+	int X;
 	n = getint();
-	k = getint();
-	int h[n];
-	int dp[n];
+	X = getint();
+	int x[n];
+	int diff[n];
 	ROOP(i, n) {
-		h[i] = getint();
-		dp[i] = 1E9;
+		x[i] = getint();
+		diff[i] = abs(x[i] - X);
 	}
-	dp[0] = 0;
+
+	int a, b;
+	a = diff[0];
 	for(i = 1; i < n; i++) {
-		for(j = 1; j <= k; j++) {
-			if (i - j < 0) break;
-			dp[i] = min(dp[i], dp[i - j] + abs(h[i - j] - h[i]));
-		}
+		b = diff[i];
+		a = gdc(a, b);
 	}
-	printf("%d\n", dp[n-1]);
+	showint(a);
 	return 0;
 }
 

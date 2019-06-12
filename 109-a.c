@@ -36,23 +36,14 @@ int min(int a, int b) {
 }
 
 int main(void) {
-	int n, k, i, j;
-	n = getint();
-	k = getint();
-	int h[n];
-	int dp[n];
-	ROOP(i, n) {
-		h[i] = getint();
-		dp[i] = 1E9;
+	int a, b, i, j;
+	a = getint();
+	b = getint();
+	if (a % 2 == 0 || b % 2 == 0) {
+		showstring("No");
+	} else {
+		showstring("Yes");
 	}
-	dp[0] = 0;
-	for(i = 1; i < n; i++) {
-		for(j = 1; j <= k; j++) {
-			if (i - j < 0) break;
-			dp[i] = min(dp[i], dp[i - j] + abs(h[i - j] - h[i]));
-		}
-	}
-	printf("%d\n", dp[n-1]);
 	return 0;
 }
 
