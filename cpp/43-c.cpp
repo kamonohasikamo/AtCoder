@@ -6,6 +6,8 @@
 #include <cmath>
 #include <string>
 #include <cstring>
+#include <vector>
+#include <numeric>
 
 #define roop(i, n) for(int i=0;i<n;i++)
 
@@ -30,6 +32,19 @@ float myPower(int a, int n) { // aのn乗の計算
 }
 
 int main() {
-	
+	int n, i;
+	cin >> n;
+	vector<int> a(n);
+	roop(i, n) {
+		cin >> a[i];
+	}
+	int sum = accumulate(a.begin(), a.end(), 0);
+	int average = round((double)sum / (double)n);
+	int ans = 0;
+	roop(i, n) {
+		ans += myPower((a[i] - average), 2);
+	}
+
+	cout << ans << endl;
 	return 0;
 }
