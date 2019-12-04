@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "vector": "cpp"
     },
     "editor.tabSize": 2,
     "editor.renderWhitespace": "boundary"
