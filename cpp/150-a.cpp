@@ -21,14 +21,6 @@ using namespace std;
 using ll = long long int;
 using ull = unsigned long long;
 
-char toSmall(char c) { // 大文字を小文字へ
-	return (c + 0x20);
-}
-
-char toLarge(char c) { // 小文字を大文字へ
-	return (c - 0x20);
-}
-
 float myPower(int a, int n) { // aのn乗の計算
 	float x = 1;
 	while (n > 0) { // 全てのbitが捨てられるまで
@@ -41,7 +33,7 @@ float myPower(int a, int n) { // aのn乗の計算
 	return x;
 }
 
-ll combination(ll n, ll r) { // nCr の計算
+ll combination(ll n, ll r) {
 	if (n < 0 || r < 0 || r > n) return -1;
 
 	if (n - r < r) r = n - r;
@@ -73,7 +65,7 @@ ll combination(ll n, ll r) { // nCr の計算
 	return result;
 }
 
-vector<string> split(const string& src, const char* delim = ",") { //カンマ区切り
+vector<string> split(const string& src, const char* delim = ",") {
 	vector<string> vec;
 	string::size_type len = src.length();
 
@@ -97,30 +89,13 @@ bool check_int(string str)
 	return false;
 }
 
-struct rest {
-	string s;
-	int p;
-	int num;
-
-	/* -------------------------------------
-	sort関数を使用したときのソートの定義をする。
-	まずは文字列sでソートする。
-	文字列sが同じだった場合、pでソートする。
-	この条件を参考演算子で表現(ifでもOK)
-	-------------------------------------*/
-	bool operator<(const rest& right) const {
-		return s == right.s ? p > right.p : s < right.s;
-	}
-};
-
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	int x, k;
+	cin >> k >> x;
+	if (500 * k >= x) {
+		cout << "Yes" << endl;
+	} else {
+		cout << "No" << endl;
 	}
-
 	return 0;
 }

@@ -97,30 +97,7 @@ bool check_int(string str)
 	return false;
 }
 
-struct rest {
-	string s;
-	int p;
-	int num;
-
-	/* -------------------------------------
-	sort関数を使用したときのソートの定義をする。
-	まずは文字列sでソートする。
-	文字列sが同じだった場合、pでソートする。
-	この条件を参考演算子で表現(ifでもOK)
-	-------------------------------------*/
-	bool operator<(const rest& right) const {
-		return s == right.s ? p > right.p : s < right.s;
-	}
-};
-
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
-	}
-
+	
 	return 0;
 }

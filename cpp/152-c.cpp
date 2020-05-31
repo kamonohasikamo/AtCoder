@@ -15,6 +15,7 @@
 
 #define roop(i, n) for(int i=0;i<n;i++)
 #define DIV 1000000007
+#define INF 2e6
 //static const long double pi = 3.1415926535897932;
 
 using namespace std;
@@ -114,13 +115,20 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	ll n;
+	cin >> n;
+	vector<ll> p(n);
+	for (int i = 0; i < n; i++) {
+		cin >> p[i];
 	}
-
+	ll m_i = INF;
+	ll ans = 0;
+	for (int i = 0; i < n; i++) {
+		m_i = min(m_i, p[i]); // それまでの最小値がm_i
+		if (m_i >= p[i]) {
+			ans++;
+		}
+	}
+	cout << ans << endl;
 	return 0;
 }

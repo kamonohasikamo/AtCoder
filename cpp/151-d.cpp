@@ -113,14 +113,32 @@ struct rest {
 	}
 };
 
+string target = "keyence";
+
 int main() {
 	string s;
 	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	if (s == target) {
+		cout << "YES" << endl;
+		return 0; 
 	}
-
+	
+	int n = s.size();
+	for(int i = 0; i < n; i++){
+		for(int j = i; j < n; j++) {
+			string S = "";
+			for(int k = 0; k < n; k++){
+				if(i<=k && k<=j){
+					continue;
+				}
+				else S.push_back(s[k]);
+			}
+			if(S == target){
+				puts("YES");
+				return 0;
+			}
+		}
+	}
+	puts("NO");
 	return 0;
 }

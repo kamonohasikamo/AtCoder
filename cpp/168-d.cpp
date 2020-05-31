@@ -1,8 +1,6 @@
-#define _USE_MATH_DEFINES
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cctype>
 #include <algorithm>
 #include <functional>
 #include <cmath>
@@ -10,24 +8,14 @@
 #include <cstring>
 #include <vector>
 #include <numeric>
-#include <iomanip>
-#include <limits>
 
 #define roop(i, n) for(int i=0;i<n;i++)
 #define DIV 1000000007
-//static const long double pi = 3.1415926535897932;
+static const double pi = acos(-1);
 
 using namespace std;
 using ll = long long int;
 using ull = unsigned long long;
-
-char toSmall(char c) { // 大文字を小文字へ
-	return (c + 0x20);
-}
-
-char toLarge(char c) { // 小文字を大文字へ
-	return (c - 0x20);
-}
 
 float myPower(int a, int n) { // aのn乗の計算
 	float x = 1;
@@ -41,7 +29,7 @@ float myPower(int a, int n) { // aのn乗の計算
 	return x;
 }
 
-ll combination(ll n, ll r) { // nCr の計算
+ll combination(ll n, ll r) {
 	if (n < 0 || r < 0 || r > n) return -1;
 
 	if (n - r < r) r = n - r;
@@ -73,7 +61,7 @@ ll combination(ll n, ll r) { // nCr の計算
 	return result;
 }
 
-vector<string> split(const string& src, const char* delim = ",") { //カンマ区切り
+vector<string> split(const string& src, const char* delim = ",") {
 	vector<string> vec;
 	string::size_type len = src.length();
 
@@ -88,39 +76,17 @@ vector<string> split(const string& src, const char* delim = ",") { //カンマ�
 	return vec;
 }
 
-bool check_int(string str)
-{
-	if (all_of(str.cbegin(), str.cend(), [](char ch) { return isdigit(ch);}))
-	{
-		return true;
-	}
-	return false;
-}
-
-struct rest {
-	string s;
-	int p;
-	int num;
-
-	/* -------------------------------------
-	sort関数を使用したときのソートの定義をする。
-	まずは文字列sでソートする。
-	文字列sが同じだった場合、pでソートする。
-	この条件を参考演算子で表現(ifでもOK)
-	-------------------------------------*/
-	bool operator<(const rest& right) const {
-		return s == right.s ? p > right.p : s < right.s;
-	}
+struct root {
+	int i;
+	int value;
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	ll n, m;
+	cin >> n >> m;
+	vector<ll> a(m+1), b(m+1);
+	for (int i = 1; i <= m; i++) {
+		cin >> a[i] >> b[i];
 	}
-
 	return 0;
 }

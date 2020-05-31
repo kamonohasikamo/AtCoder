@@ -114,13 +114,12 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	int n, m;
+	cin >> n >> m;
+	if (n == m) {
+		cout << "Yes" << endl;
+	} else {
+		cout << "No" << endl;
 	}
-
 	return 0;
 }

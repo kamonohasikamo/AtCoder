@@ -114,13 +114,20 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	ll n;
+	cin >> n;
+	vector<ll> a(n);
+	vector<ll> b(n);
+	for (ll i = 0; i < n; i++) {
+		cin >> a[i];
+		b[i] = a[i] - i - 1;
 	}
-
+	sort(b.begin(), b.end());
+	ll x = b[n/2];
+	ll ans = 0;
+	for (ll i = 0; i < n; i++) {
+		ans += max(x - b[i], -x + b[i]);
+	}
+	cout << ans << endl;
 	return 0;
 }

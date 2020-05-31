@@ -114,13 +114,9 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
-	}
-
+	char c;
+	cin >> c;
+	c = c + 1;
+	cout << c << endl;
 	return 0;
 }

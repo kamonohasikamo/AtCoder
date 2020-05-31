@@ -114,13 +114,10 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
-	}
-
+	long double a, b, ans;
+	cin >> a >> b;
+	ans = (a * b);
+	ans = floor(ans);
+	cout << setprecision(16) << ans << endl;
 	return 0;
 }

@@ -113,14 +113,52 @@ struct rest {
 	}
 };
 
-int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
+bool IsPrime(int num)
+{
+	if (num < 2) return false;
+	else if (num == 2) return true;
+	else if (num % 2 == 0) return false; // 偶数はあらかじめ除く
 
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	double sqrtNum = sqrt(num);
+	for (int i = 3; i <= sqrtNum; i += 2)
+	{
+		if (num % i == 0)
+		{
+			// 素数ではない
+			return false;
+		}
 	}
 
+	// 素数である
+	return true;
+}
+
+int main() {
+	ll n;
+	cin >> n;
+	if (n < 2) {
+		cout << 0 << endl;
+	} else {
+		ll z = 2;
+		ll ans = 0;
+		if (IsPrime(n)) {
+			cout << 1 << endl;
+		} else {
+			while(true) {
+				if (n < z) {
+					cout << ans << endl;
+					break;
+				}
+				if (n % z == 0) {
+					n /= z;
+					z++;
+					ans++;
+					continue;
+				} else {
+					z++;
+				}
+			}
+		}
+	}
 	return 0;
 }

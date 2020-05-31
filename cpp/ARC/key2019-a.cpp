@@ -114,13 +114,19 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	int a[10];
+	for (int i = 0; i < 10;i++) {
+		a[i] = 0;
 	}
-
+	for(int i = 0; i < 4; i++) {
+		int x;
+		cin >> x;
+		a[x]++;
+	}
+	if (a[1] == 1 && a[4] == 1 && a[7] == 1 && a[9] == 1) {
+		cout << "YES" << endl;
+	} else {
+		cout << "NO" << endl;
+	}
 	return 0;
 }

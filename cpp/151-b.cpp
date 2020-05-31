@@ -114,13 +114,23 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	int n, k, m;
+	cin >> n >> k >> m;
+	int sum = 0;
+	for (int i = 0; i < n-1; i++) {
+		int a;
+		cin >> a;
+		sum += a;
 	}
-
+	int ans = n * m - sum;
+	if (ans <= k) {
+		if (0 <= ans) {
+			cout << ans << endl;
+		} else {
+			cout << 0 << endl;
+		}
+	} else {
+		cout << -1 << endl;
+	}
 	return 0;
 }

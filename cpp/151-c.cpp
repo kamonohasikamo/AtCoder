@@ -114,13 +114,28 @@ struct rest {
 };
 
 int main() {
-	string s;
-	cin >> s;
-	vector<string> ans = split(s);
-
-	for (int i = 0; i < ans.size(); i++) {
-		cout << ans[i] << " ";
+	int n, m;
+	cin >> n >> m;
+	vector<int> WA(n+1);
+	vector<bool> AC(n+1);
+	for (int i = 1; i <= n; i++) {
+		WA[i] = 0;
+		AC[i] = false;
 	}
-
+	int clearCount = 0, outCount = 0;
+	for (int i = 0; i < m; i++) {
+		int p;
+		string s;
+		cin >> p >> s;
+		if (AC[p]) continue;
+		if (s == "AC") {
+			AC[p] = true;
+			clearCount++;
+			outCount += WA[p];
+		} else if (s == "WA"){
+			WA[p]++;
+		}
+	}
+	cout << clearCount << " " << outCount << endl;
 	return 0;
 }
